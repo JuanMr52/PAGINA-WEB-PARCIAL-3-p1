@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RMN: Fundamentos Físicos y Principios de Imagenología Biomédica</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        header {
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 15px;
+            padding: 40px;
+            margin-bottom: 30px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            text-align: center;
+        }
+
+        h1 {
+            color: #667eea;
+            font-size: 2.5em;
+            margin-bottom: 15px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .subtitle {
+            color: #555;
+            font-size: 1.2em;
+            font-weight: 300;
+            margin-bottom: 20px;
+        }
+
+        .team-info {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            padding: 15px;
+            border-radius: 10px;
+            display: inline-block;
+            font-weight: 500;
+        }
+
+        .content-section {
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 15px;
+            padding: 35px;
+            margin-bottom: 25px;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+            transition: transform 0.3s ease;
+        }
+
+        .content-section:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 35px rgba(0, 0, 0, 0.2);
+        }
+
+        .section-icon {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+            display: block;
+        }
+
+        h2 {
+            color: #667eea;
+            font-size: 1.8em;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        h3 {
+            color: #764ba2;
+            font-size: 1.3em;
+            margin: 20px 0 10px 0;
+        }
+
+        p {
+            margin-bottom: 15px;
+            text-align: justify;
+        }
+
+        .formula {
+            background: #f8f9fa;
+            border-left: 4px solid #667eea;
+            padding: 15px;
+            margin: 15px 0;
+            font-family: 'Courier New', monospace;
+            border-radius: 5px;
+        }
+
+        .two-states {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+            margin: 15px 0;
+        }
+
+        .state-box {
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            color: white;
+            padding: 15px;
+            border-radius: 10px;
+            text-align: center;
+            font-weight: 500;
+        }
+
+        .state-box:first-child {
+            background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        th, td {
+            padding: 15px;
+            text-align: left;
+            border-bottom: 1px solid #e0e0e0;
+        }
+
+        th {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            font-weight: 600;
+        }
+
+        tr:hover {
+            background: #f5f5f5;
+        }
+
+        .params-list {
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 10px;
+            margin: 15px 0;
+        }
+
+        .params-list li {
+            margin: 10px 0;
+            padding-left: 25px;
+            position: relative;
+        }
+
+        .params-list li:before {
+            content: "▸";
+            position: absolute;
+            left: 0;
+            color: #667eea;
+            font-weight: bold;
+        }
+
+        .navigation {
+            background: linear-gradient(135deg, #11998e 0%, #38ef7d 100%);
+            border-radius: 15px;
+            padding: 30px;
+            text-align: center;
+            margin: 30px 0;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+        }
+
+        .nav-button {
+            display: inline-block;
+            background: white;
+            color: #11998e;
+            padding: 15px 40px;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: bold;
+            font-size: 1.1em;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .nav-button:hover {
+            transform: scale(1.05);
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+        }
+
+        footer {
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 15px;
+            padding: 25px;
+            text-align: center;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+            color: #555;
+        }
+
+        footer strong {
+            color: #667eea;
+        }
+
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 1.8em;
+            }
+
+            .two-states {
+                grid-template-columns: 1fr;
+            }
+
+            .content-section {
+                padding: 20px;
+            }
+
+            table {
+                font-size: 0.9em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1> RMN: Fundamentos Físicos y Principios de Imagenología Biomédica</h1>
+            <p class="subtitle">Una exploración desde la física cuántica hasta la tecnología médica moderna</p>
+            <div class="team-info">
+                 Equipo 7 – Juan Pablo Martinez & Yheisler Orocu<br>
+                Universidad Latina de Panamá – Tecnología Médica
+            </div>
+        </header>
+
+        <div class="content-section">
+            <h2><span class="section-icon"></span> ¿Qué es la Espectroscopía de RMN?</h2>
+            <p>La Resonancia Magnética Nuclear (RMN) es una técnica espectroscópica basada en la absorción de energía electromagnética por núcleos atómicos en presencia de un campo magnético externo. Su principio se fundamenta en la propiedad cuántica del espín nuclear, que genera momentos magnéticos capaces de interactuar con campos magnéticos intensos.</p>
+            <p>En el contexto clínico, la RMN se transforma en Imagen por Resonancia Magnética (IRM), una herramienta no invasiva que permite visualizar tejidos blandos con alta resolución espacial y contraste funcional, sin necesidad de radiación ionizante.</p>
+        </div>
+
+        <div class="content-section">
+            <h2><span class="section-icon"></span> Principios Físico-Químicos Fundamentales</h2>
+            
+            <h3>1. Espín Nuclear y Momento Magnético</h3>
+            <p>El espín es una propiedad intrínseca de los núcleos con número atómico impar (como el ¹H, ¹³C, ³¹P).</p>
+            <p>Cada núcleo con espín posee un momento magnético (μ) proporcional a su espín y a la constante giromagnética (γ):</p>
+            <div class="formula">
+                μ = γ · I
+            </div>
+            <p>Donde <strong>I</strong> es el número cuántico de espín.</p>
+
+            <h3>2. Campo Magnético Externo (B₀)</h3>
+            <p>Al aplicar un campo magnético uniforme, los núcleos se alinean en dos estados energéticos:</p>
+            <div class="two-states">
+                <div class="state-box">Estado paralelo<br>(baja energía)</div>
+                <div class="state-box">Estado antiparalelo<br>(alta energía)</div>
+            </div>
+            <p>La diferencia energética entre estos estados es:</p>
+            <div class="formula">
+                ΔE = ℏ · γ · B₀
+            </div>
+            <p>Donde <strong>ℏ</strong> es la constante de Planck reducida.</p>
+
+            <h3>3. Frecuencia de Larmor</h3>
+            <p>La frecuencia a la que un núcleo resuena se llama frecuencia de Larmor:</p>
+            <div class="formula">
+                ω₀ = γ · B₀
+            </div>
+            <p><strong>Ejemplo:</strong> Para el protón (¹H) en un campo de 1.5 T, ω₀ ≈ 63.87 MHz</p>
+
+            <h3>4. Excitación por Radiofrecuencia</h3>
+            <p>Se aplica un pulso de RF a la frecuencia de Larmor, provocando una transición energética.</p>
+            <p>Los núcleos absorben energía y cambian de estado, generando una señal detectable al relajarse.</p>
+
+            <h3>5. Relajación T1 y T2</h3>
+            <p><strong>T1 (longitudinal):</strong> tiempo que tarda el sistema en recuperar la magnetización en el eje z.</p>
+            <p><strong>T2 (transversal):</strong> tiempo que tarda en perder coherencia en el plano xy.</p>
+            <p>Estos tiempos son fundamentales para el contraste de imagen en IRM.</p>
+        </div>
+
+        <div class="content-section">
+            <h2><span class="section-icon"></span> Componentes del Instrumento de RMN</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Componente</th>
+                        <th>Función Química y Física</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Imán Superconductivo</strong></td>
+                        <td>Genera un campo magnético constante (1.5–3.0 T). Utiliza helio líquido para mantener superconductividad.</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Bobinas de Gradiente</strong></td>
+                        <td>Modulan el campo magnético espacialmente para codificar posición.</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Bobina de RF</strong></td>
+                        <td>Emite pulsos de radiofrecuencia y detecta la señal emitida por los núcleos excitados.</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Sistema de Adquisición</strong></td>
+                        <td>Digitaliza la señal de relajación para reconstruir la imagen.</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Consola de Procesamiento</strong></td>
+                        <td>Aplica transformadas de Fourier para convertir datos espectroscópicos en imágenes clínicas.</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="content-section">
+            <h2><span class="section-icon"></span> Parámetros Técnicos Clave</h2>
+            <div class="params-list">
+                <ul style="list-style: none;">
+                    <li><strong>Resolución espacial:</strong> hasta 0.5 mm (dependiendo del protocolo y equipo)</li>
+                    <li><strong>Relación señal/ruido (SNR):</strong> mejorada por campos magnéticos más intensos</li>
+                    <li><strong>Duración típica de estudio:</strong> 15–45 minutos</li>
+                    <li><strong>Núcleos utilizados:</strong>
+                        <ul style="list-style: none; margin-left: 25px;">
+                            <li>¹H (protón): más común por abundancia en tejidos</li>
+                            <li>³¹P, ¹³C, ²³Na: usados en estudios metabólicos o especializados</li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="content-section">
+            <h2><span class="section-icon">🧪</span> Aplicación Química en Biomedicina</h2>
+            <p>La RMN permite estudiar ambientes moleculares mediante el desplazamiento químico (δ), que refleja la densidad electrónica alrededor del núcleo.</p>
+            <p>En IRM, este principio se traduce en contrastes tisulares que diferencian agua libre, grasa, tejido necrótico o tumoral.</p>
+        </div>
+
+        <div class="navigation">
+            <h2 style="color: white; margin-bottom: 20px;"> Navegación</h2>
+            <a href="pagina2.html" class="nav-button"> Ir a la Página 2: Aplicaciones Clínicas de la RMN</a>
+            <p style="color: white; margin-top: 15px; font-size: 0.9em;">Descubre los usos biomédicos, estudios reales y visualizaciones clínicas</p>
+        </div>
+
+        <footer>
+            <p><strong> Creado por el Equipo 7</strong></p>
+            <p>Juan Pablo Martinez & Yheisler Orocu</p>
+            <p>Universidad Latina de Panamá – Tecnología Médica</p>
+            <p>Octubre 2025</p>
+        </footer>
+    </div>
+</body>
+</html>
